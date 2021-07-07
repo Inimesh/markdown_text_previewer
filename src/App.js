@@ -15,7 +15,10 @@ const Viewer = (props) => {
 
     return (
         <>
-        <div id="preview" dangerouslySetInnerHTML={getMarkdownText()} />
+        <p id="viewer"
+            className="window"
+            dangerouslySetInnerHTML={getMarkdownText()}
+        />
         </>
     )
 }
@@ -29,16 +32,17 @@ const Editor = () => {
 
     const handleChange = (event) => {
         changeInputText(prevText => event.target.value);
-        console.log("Text actually changed!")
     }
 
     return (
         <>
         <textarea
-            id="editor"
+            id="textInput"
+            className="window"
             value={inputText}
-            onChange={handleChange}/>
-            <Viewer text={inputText}/>
+            onChange={handleChange}
+        />
+        <Viewer text={inputText}/>
         </>
     )
 }
@@ -47,11 +51,11 @@ const Editor = () => {
 const App = () => {
 
     return (
-        <>
+        <div id="editor">
         <Editor />
-        </>
+        </div>
     )
-}
+};
 
 const defaultText = `# Welcome to my React Markdown Previewer!
 

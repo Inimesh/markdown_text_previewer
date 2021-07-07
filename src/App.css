@@ -1,0 +1,19 @@
+#editor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.window {
+    height: 300px;
+    width: 70%;
+    border-style: solid;
+}
+
+#viewer {
+    height: auto;
+    padding-left: 10px;
+}
