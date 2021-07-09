@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 
 import marked from 'marked';
+import Prism from 'prismjs';
 
 import './App.css';
 
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    breaks: true,
+    highlight: function (code) {
+        return Prism.highlight(code, Prism.languages.javascript);
+    }
+});
 
 // Rendred by Editor. This runs a markdown interpreter and displays text.
 const Viewer = (props) => {
 
     const getMarkdownText = () => {
-        let rawMarkup = marked(props.text, {sanitize: true});
+        let rawMarkup = marked(props.text, { sanitize: true});
         return { __html: rawMarkup };
     }
 
@@ -37,12 +45,12 @@ const Editor = () => {
     return (
         <>
         <textarea
-            id="textInput"
+            id="editor"
             className="window"
             value={inputText}
             onChange={handleChange}
         />
-        <Viewer text={inputText}/>
+        <Viewer text={inputText} />
         </>
     )
 }
@@ -51,11 +59,14 @@ const Editor = () => {
 const App = () => {
 
     return (
-        <div id="editor">
+        <div id="app">
+        <h1 id="title">Markdown Previewer</h1>
         <Editor />
         </div>
     )
 };
+
+
 
 const defaultText = `# Welcome to my React Markdown Previewer!
 
