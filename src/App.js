@@ -1,70 +1,10 @@
 import React, { useState } from 'react';
 
 import marked from 'marked';
-import Prism from 'prismjs';
 
 import './App.css';
 
-marked.setOptions({
-    renderer: new marked.Renderer(),
-    breaks: true,
-    highlight: function (code) {
-        return Prism.highlight(code, Prism.languages.javascript);
-    }
-});
 
-// Rendred by Editor. This runs a markdown interpreter and displays text.
-const Viewer = (props) => {
-
-    const getMarkdownText = () => {
-        let rawMarkup = marked(props.text, { sanitize: true});
-        return { __html: rawMarkup };
-    }
-
-    return (
-        <>
-        <p id="viewer"
-            className="window"
-            dangerouslySetInnerHTML={getMarkdownText()}
-        />
-        </>
-    )
-}
-
-// Renderd by App. This component handles text input and stores in state.
-// Child component: Viewer which inherits the input text.
-const Editor = () => {
-
-    const [inputText, changeInputText] = useState(defaultText);
-
-
-    const handleChange = (event) => {
-        changeInputText(prevText => event.target.value);
-    }
-
-    return (
-        <>
-        <textarea
-            id="editor"
-            className="window"
-            value={inputText}
-            onChange={handleChange}
-        />
-        <Viewer text={inputText} />
-        </>
-    )
-}
-
-// 'Top Level' component that renders the Editor component.
-const App = () => {
-
-    return (
-        <div id="app">
-        <h1 id="title">Markdown Previewer</h1>
-        <Editor />
-        </div>
-    )
-};
 
 
 
