@@ -4,8 +4,67 @@ import marked from 'marked';
 
 import './App.css';
 
+// Parent component that houses state and renders the Editor and Previewer.
+const App = () => {
+
+    const [inputText, changeInputText] = useState(defaultText);
+
+    const alterText = (event) => {
+        changeInputText(prevText => event.target.value)
+    }
+
+    return (
+        <>
+        <h1>Markdown Previewer</h1>
+
+        <ToolBar
+            title="Editor"/>
+        <Editor
+            inputText={inputText}
+            inputTextChange={alterText}/>
+
+        <ToolBar
+            title="Preview"/>
+        <Previewer
+            markdown={inputText}/>
+        </>
+    )
+};
 
 
+
+// Rendered by App. Renders ToolBar. Component in which you can change the
+// input text
+const Editor = (props) => {
+
+    return (
+        <>
+        <textarea
+            value={props.inputText}
+            onChange={props.inputTextChange}
+            >{props.inputText}</textarea>
+        </>
+    )
+};
+
+// Rendered by App. Renders ToolBar. Component in which you preview markdown
+const Previewer = (props) => {
+
+    const genMarkdownPrev = () => ({ __html: marked(props.markdown) });
+
+    return (
+        <>
+        <div dangerouslySetInnerHTML={genMarkdownPrev()} />
+        </>
+    )
+};
+
+const ToolBar = (props) => {
+
+    return (
+        <div>{props.title}</div>
+    )
+};
 
 
 const defaultText = `# Welcome to my React Markdown Previewer!
