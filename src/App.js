@@ -14,20 +14,16 @@ const App = () => {
     }
 
     return (
-        <>
-        <h1>Markdown Previewer</h1>
+        <div id="app">
+            <h1>Markdown Previewer</h1>
 
-        <ToolBar
-            title="Editor"/>
-        <Editor
-            inputText={inputText}
-            inputTextChange={alterText}/>
+            <Editor
+                inputText={inputText}
+                inputTextChange={alterText}/>
 
-        <ToolBar
-            title="Preview"/>
-        <Previewer
-            markdown={inputText}/>
-        </>
+            <Previewer
+                markdown={inputText}/>
+        </div>
     )
 };
 
@@ -38,12 +34,13 @@ const App = () => {
 const Editor = (props) => {
 
     return (
-        <>
-        <textarea
-            value={props.inputText}
-            onChange={props.inputTextChange}
+        <div>
+            <ToolBar title="Editor"/>
+            <textarea
+                value={props.inputText}
+                onChange={props.inputTextChange}
             >{props.inputText}</textarea>
-        </>
+        </div>
     )
 };
 
@@ -53,16 +50,18 @@ const Previewer = (props) => {
     const genMarkdownPrev = () => ({ __html: marked(props.markdown) });
 
     return (
-        <>
-        <div dangerouslySetInnerHTML={genMarkdownPrev()} />
-        </>
+        <div>
+            <ToolBar title="Preview"/>
+            <div dangerouslySetInnerHTML={genMarkdownPrev()} />
+        </div>
     )
 };
 
+// Rendered by Editor and Previewer. Displays the title of the window.
 const ToolBar = (props) => {
 
     return (
-        <div>{props.title}</div>
+        <div className="toolbar">{props.title}</div>
     )
 };
 
