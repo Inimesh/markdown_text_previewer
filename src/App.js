@@ -15,14 +15,21 @@ const App = () => {
 
     return (
         <div id="app">
-            <h1>Markdown Previewer</h1>
+            
+            <h1 id="page_title">Markdown Previewer</h1>
 
             <Editor
                 inputText={inputText}
                 inputTextChange={alterText}/>
 
+            <span id="window_divider" className="window"></span>
+
             <Previewer
                 markdown={inputText}/>
+
+            <footer>
+
+            </footer>
         </div>
     )
 };
@@ -34,12 +41,12 @@ const App = () => {
 const Editor = (props) => {
 
     return (
-        <div>
+        <div id="editor_window" className="window">
             <ToolBar title="Editor"/>
-            <textarea
+            <textarea id="input_text_area"
                 value={props.inputText}
                 onChange={props.inputTextChange}
-            >{props.inputText}</textarea>
+                >{props.inputText}</textarea>
         </div>
     )
 };
@@ -50,9 +57,9 @@ const Previewer = (props) => {
     const genMarkdownPrev = () => ({ __html: marked(props.markdown) });
 
     return (
-        <div>
+        <div id="previewer_window" className="window">
             <ToolBar title="Preview"/>
-            <div dangerouslySetInnerHTML={genMarkdownPrev()} />
+            <div id="preview_content" dangerouslySetInnerHTML={genMarkdownPrev()} />
         </div>
     )
 };

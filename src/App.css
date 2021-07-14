@@ -1,9 +1,80 @@
-
 #app {
+    min-height: 100vh;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
+    background-color: #FFDCB5;
 
 }
+
+#page_title {
+    font-size: 5em;
+}
+
+#page_title {
+    color: white;
+    font-size: 3em;
+}
+
+.window {
+    border-radius: 10px 10px 0px 0px;
+    width: 80%;
+
+    border-style: solid;
+
+    background-color: #FFEDD9;
+}
+
+.toolbar {
+    border-style: solid;
+    border-radius: 5px 5px 0px 0px;
+
+    border-color: #B26C1D;
+    background-color: #B26C1D;
+    color :#FFDCB5;
+}
+
+#window_divider {
+    height: 1em;
+    border-radius: 0px;
+
+    border-style: none;
+
+    background-color: inherit;
+}
+
+
+#input_text_area {
+    border-width: 0px;
+    padding: 5px 0px 0px 0.3%;
+
+
+    resize: vertical;
+    min-height: 2em;
+    width: 99.7%;
+    height: 20em;
+
+    background-color: inherit;
+}
+
+#previewer_window {
+    min-height: 10em;
+}
+
+footer {
+    text-align: center;
+    padding: 2em;
+}
+/* colour scheme
+ Base = #F3AF62
+
+ lightest = #FFDCB5
+ light = #FFC88B
+ dark = #D78E3C
+ darkest = #B26C1D
+
+ Off-white = #FFEDD9
+ */
