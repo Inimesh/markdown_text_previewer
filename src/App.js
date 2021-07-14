@@ -4,6 +4,7 @@ import marked from 'marked';
 
 import './App.css';
 
+
 // Parent component that houses state and renders the Editor and Previewer.
 const App = () => {
 
@@ -15,7 +16,7 @@ const App = () => {
 
     return (
         <div id="app">
-            
+
             <h1 id="page_title">Markdown Previewer</h1>
 
             <Editor

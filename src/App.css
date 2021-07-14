@@ -10,13 +10,19 @@
 
 }
 
-#page_title {
-    font-size: 5em;
+@font-face {
+    font-family: 'ostrich-sans';
+    src: url('fonts/ostrich-sans/ostrich-sans-inline-italic.ttf');
+    font-style: normal;
+    font-weight: 100;
 }
 
 #page_title {
-    color: white;
-    font-size: 3em;
+    text-align: center;
+    font-family: 'ostrich-sans';
+    font-weight: 100;
+    font-size: 5.5em;
+    color: #406064;
 }
 
 .window {
@@ -24,13 +30,17 @@
     width: 80%;
 
     border-style: solid;
+    border-width: 4px;
 
+    border-color: #406064;
     background-color: #FFEDD9;
 }
 
 .toolbar {
     border-style: solid;
     border-radius: 5px 5px 0px 0px;
+
+    /* TODO: change font */
 
     border-color: #B26C1D;
     background-color: #B26C1D;
@@ -51,6 +61,7 @@
     border-width: 0px;
     padding: 5px 0px 0px 0.3%;
 
+    /* TODO: customize scroll bar */
 
     resize: vertical;
     min-height: 2em;
@@ -63,6 +74,9 @@
 #previewer_window {
     min-height: 10em;
 }
+
+/* TODO: add some padding to #preview_content */
+
 
 footer {
     text-align: center;
@@ -77,4 +91,7 @@ footer {
  darkest = #B26C1D
 
  Off-white = #FFEDD9
+
+ -- from reusables--
+ vintage color palette: #406064;
  */
