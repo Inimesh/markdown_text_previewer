@@ -4,6 +4,7 @@ import marked from 'marked';
 
 import './App.css';
 
+// TODO: Figure out how to do code highlighting
 
 // Parent component that houses state and renders the Editor and Previewer.
 const App = () => {
@@ -16,21 +17,18 @@ const App = () => {
 
     return (
         <div id="app">
-
             <h1 id="page_title">Markdown Previewer</h1>
 
             <Editor
                 inputText={inputText}
                 inputTextChange={alterText}/>
 
-            <span id="window_divider" className="window"></span>
+            <span className="window_divider"></span>
 
             <Previewer
                 markdown={inputText}/>
 
-            <footer>
-
-            </footer>
+            <footer></footer>
         </div>
     )
 };
