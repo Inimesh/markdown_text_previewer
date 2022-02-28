@@ -1,6 +1,7 @@
 # Markdown Previewer
 
 ## Description
+A simple web application that dynamically parses and renders markdown syntax.
 
 ## Screenshots
 
@@ -11,6 +12,20 @@
 
 ## Dependencies
 
-## To Run
+- Javascript
+- React
 
+## Usage
+
+Install dependencies
+
+```
+npm install
+```
+
+To run on localhost, simply run the server (e.g. npm)
+
+```
+npm run start
+```
 
