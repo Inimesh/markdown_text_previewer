@@ -12,7 +12,7 @@ const App = () => {
     const [inputText, changeInputText] = useState(defaultText);
 
     const alterText = (event) => {
-        changeInputText(prevText => event.target.value)
+        changeInputText(() => event.target.value)
     }
 
     return (
